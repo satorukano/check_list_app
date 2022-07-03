@@ -367,8 +367,7 @@ app.post('/add', (req, res, next) => {
     'select * from for_crew where id = ?',
     [added_id],
     (error, results) => {
-      console.log(results);
-      if(results[0].length > 0) {
+      if(results != undefined) {
         errors.push('このidは使われています');
 
         res.render('add.ejs', {errors:errors});
