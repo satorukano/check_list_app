@@ -97,8 +97,8 @@ app.post('/', (req, res) => {
     'select * from for_crew where id = ?  ',
     [id],
     (error, results) => {
+	console.log(error);
         if(results.length > 0) {
-	  console.log(error)
           req.session.username = results[0].name;
           req.session.logged_id = results[0].id;
           res.redirect('/check_for_crew');
