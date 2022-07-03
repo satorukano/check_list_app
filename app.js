@@ -474,5 +474,5 @@ app.post('/edit_i', (req, res) => {
   res.redirect('/check_for_inst');
 });
 
-app.listen(process.env.PORT ||3000);
+server.listen(process.env.PORT ||3000);
 
