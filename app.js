@@ -98,6 +98,7 @@ app.post('/', (req, res) => {
     [id],
     (error, results) => {
         if(results.length > 0) {
+	  console.log(error)
           req.session.username = results[0].name;
           req.session.logged_id = results[0].id;
           res.redirect('/check_for_crew');
