@@ -385,21 +385,21 @@ app.post('/add', (req, res, next) => {
   const added_name = req.body.name;
 
   connection.query(
-    'insert into for_crew (name, id) values(?, ?); ',
+    'insert into for_crew (name, id) values(?, ?) ',
     [added_name, added_id],
     (error, results) => {
     }
   );
 
   connection.query(
-    'insert into for_skip (name, id) values(?, ?); ',
+    'insert into for_skip (name, id) values(?, ?) ',
     [added_name, added_id],
     (error, results) => {
     }
   );
 
   connection.query(
-    'insert into for_inst (name, id) values(?, ?); ',
+    'insert into for_inst (name, id) values(?, ?) ',
     [added_name, added_id],
     (error, results) => {
       res.redirect('/');
