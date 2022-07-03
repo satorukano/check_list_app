@@ -54,12 +54,7 @@ var getHashNextKey = function(hash, targetKey) {
 };
 
 
-connection.query(
-  'select * from for_inst where id = 1  ',
-  (error, results) => {
-      console.log(results[0]);
-  }
-);
+
 
 
 
