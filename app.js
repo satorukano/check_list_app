@@ -367,7 +367,8 @@ app.post('/add', (req, res, next) => {
     'select * from for_crew where id = ?',
     [added_id],
     (error, results) => {
-      if(results.rows[0].length > 0) {
+      console.log(results);
+      if(results[0].length > 0) {
         errors.push('このidは使われています');
 
         res.render('add.ejs', {errors:errors});
