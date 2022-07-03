@@ -11,7 +11,7 @@ var connection = new Client({
   user: 'vwhkaddouexeag',
   password: '97111db9b08b83429c18ff249a8fef3c50ed1ac2aaa9a07e0614025eea7bb908',
   database: 'd9n4qd0eit11tk',
-  port: '5432'
+  port: '5432',
    ssl: {
     rejectUnauthorized: false
 });
