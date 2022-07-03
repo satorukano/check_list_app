@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <title>Document</title>
+</head>
+<body>
+    <%- include('header.ejs') %>
+  <input id="acd-check1" class="acd-check" type="checkbox">
+  <label class="acd-label" for="acd-check1">出艇準備（スロープ前）</label>
+  <div class="acd-content three-content">
+    <% var check_index_prepare_s = ['出艇時、どの様なコースを走るかをイメージしてクルーに説明したか？', '当日の風速予報を説明できるか？', '風速/海況にあわせた航行範囲制限を説明できるか？'];%>
+    <% for (var i = 0; i < 3;i++) { %>
+      <div class = "content_container">
+        <p><%= check_index_prepare_s[i] %></p>
+        <% for(var j = 0; j< 3; j++) {%>
+          <% if (check_data[i * 3 + j ] != '0') { %>
+            <span  class = 'element_check'>〇 <%=check_data[i * 3 + j]%>  </span>
+            <% } else {%>
+              <span class = 'element_check'>×</span>
+              <% }%>
+          <% } %>
+      </div>
+      <% } %>
+  </div>
+  <input id="acd-check2" class="acd-check" type="checkbox">
+  <label class="acd-label" for="acd-check2">出艇動作</label>
+  <div class="acd-content nine-content">
+    <% var check_index_move_s = ['周囲の安全確認を実施し、出艇のタイミングを図れるか？', '走り始めてから、周囲の艇に注意を払い、安全航行する余裕があるか？', '走り始めてから、舵を入れる操作が出来るか？', 'メインセールを速やかに引き込み、走り始める事が出来るか？', 'クルーにジブ/センターボード/ヒール等の指示が出来るか？', '上り強風の出艇時、メインセールの風を調整して、ヒールを調整出来るか？', '港内でも、メリハリの付いた帆走が出来るか？（しっかりクローズで走れるか？）', '港内でも、優先艇を回避して安全に走れるか？', '強風化の港内でも、旋回や停止が出来るか？']; %>
+    <% for (var i = 0; i < 9;i++) { %>
+      <div class = "content_container">
+        <p><%= check_index_move_s[i] %></p>
+        <% for(var j = 0; j< 3; j++) {%>
+          <% if (check_data[ 9 +i * 3 + j ] != '0') { %>
+            <span  class = 'element_check'>〇 <%=check_data[ 9 + i * 3 + j]%>  </span>
+            <% } else {%>
+              <span class = 'element_check'>×</span>
+              <% }%>
+          <% } %>
+      </div>
+      <% } %>
+  </div>
+  <input id="acd-check3" class="acd-check" type="checkbox">
+  <label class="acd-label" for="acd-check3">帰港動作</label>
+  <div class="acd-content seven-content">
+    <% var check_index_return_s = ['入港時、どの様なコースを走るかをイメージしてクルーに説明したか？', '下り風で入港時、ジブセールのみで港内を帆走できるか？', '下り風で入港時、セールを上げた状態で水深1.2ｍ程度で停止出来るか？(実技は深い所で実施）', '上り風で入港時、センターボードをあげるタイミングの指示が出来るか？', '適切な水深を見極め、クルーに降りる事を指示できるか？', '桟橋に着ける時、風の方向で着ける桟橋を適切に選択できるか？', '桟橋に着ける時、スピードをコントロールし、安全に桟橋に着けるか？']; %>
+    <% for (var i = 0; i < 7;i++) { %>
+      <div class = "content_container">
+        <p><%= check_index_return_s[i] %></p>
+        <% for(var j = 0; j< 3; j++) {%>
+          <% if (check_data[ 36 + i * 3 + j ] != '0') { %>
+            <span  class = 'element_check'>〇 <%=check_data[ 36 + i * 3 + j]%>  </span>
+            <% } else {%>
+              <span class = 'element_check'>×</span>
+              <% }%>
+          <% } %>
+      </div>
+      <% } %>
+  </div>
+  <input id="acd-check4" class="acd-check" type="checkbox">
+  <label class="acd-label" for="acd-check4">解装</label>
+  <div class="acd-content one-content">
+    <% var check_index_break_s = ['備品の片付けなどの最終確認を実施しているか？']; %>
+    <% for (var i = 0; i < 1;i++) { %>
+      <div class = "content_container">
+        <p><%= check_index_break_s[i] %></p>
+        <% for(var j = 0; j< 3; j++) {%>
+          <% if (check_data[ 57 +i * 3 + j ] != '0') { %>
+            <span  class = 'element_check'>〇 <%=check_data[ 57 +i * 3 + j]%>  </span>
+            <% } else {%>
+              <span class = 'element_check'>×</span>
+              <% }%>
+          <% } %>
+      </div>
+      <% } %>
+  </div>
+  <input id="acd-check5" class="acd-check" type="checkbox">
+  <label class="acd-label" for="acd-check5">ウォッチ</label>
+  <div class="acd-content three-content">
+    <% var check_index_watch_s = ['自ら安全監視を実施しているか？', 'クルーに、安全監視の報告を求めているか？', '常に、サークル艇の位置を気にして確認しているか？']; %>
+    <% for (var i = 0; i < 3;i++) { %>
+      <div class = "content_container">
+        <p><%= check_index_watch_s[i] %></p>
+        <% for(var j = 0; j< 3; j++) {%>
+          <% if (check_data[ 60 + i * 3 + j ] != '0') { %>
+            <span  class = 'element_check'>〇 <%=check_data[ 60 +i * 3 + j]%>  </span>
+            <% } else {%>
+              <span class = 'element_check'>×</span>
+              <% }%>
+          <% } %>
+      </div>
+      <% } %>
+  </div>
+  <input id="acd-check6" class="acd-check" type="checkbox">
+  <label class="acd-label" for="acd-check6">メイン操作</label>
+  <div class="acd-content nine-content">
+    <% var check_index_main_s = ['風の方位と、メインの出し引き量の関係を説明できるか？', 'バングとダウンホールの役割、調整方法を説明できるか？', 'タック前に、確実にクリートを外しているか？', '強風のタック時、メインが緩めていないか？', '強風のタック時、クルーの体重移動が遅れた場合、風を逃がして待てるか？', '強風のジャイブ時、バングを緩め、しっかりと手でセールを反転させているか？', '強風のジャイブ時、船を過度に旋回させていないか？', 'メインセール引き込み動作が適切に出来るか？', 'いかなる時もメインシートから手を離さないか？']; %>
+    <% for (var i = 0; i < 9;i++) { %>
+      <div class = "content_container">
+        <p><%= check_index_main_s[i] %></p>
+        <% for(var j = 0; j< 3; j++) {%>
+          <% if (check_data[ 69 +i * 3 + j ] != '0') { %>
+            <span  class = 'element_check'>〇 <%=check_data[69 + i * 3 + j]%>  </span>
+            <% } else {%>
+              <span class = 'element_check'>×</span>
+              <% }%>
+          <% } %>
+      </div>
+      <% } %>
+  </div>
+  <input id="acd-check7" class="acd-check" type="checkbox">
+  <label class="acd-label" for="acd-check7">スピン操作</label>
+  <div class="acd-content five-content">
+    <% var check_index_spin_s = ['スピンポールの高さ（トッピング）を調整出来るか？', 'スピンを上げる時、足で安定操舵できるか？', 'スピンの上げ下ろしがスピーディに実施できるか？', 'リーサイドに座り、安定帆走出来るか？', 'スピンジャイブの際、スピンシートとガイのトリムが出来るか？']; %>
+    <% for (var i = 0; i < 5;i++) { %>
+      <div class = "content_container">
+        <p><%= check_index_spin_s[i] %></p>
+        <% for(var j = 0; j< 3; j++) {%>
+          <% if (check_data[96 + i * 3 + j ] != '0') { %>
+            <span  class = 'element_check'>〇 <%=check_data[96 + i * 3 + j]%>  </span>
+            <% } else {%>
+              <span class = 'element_check'>×</span>
+              <% }%>
+          <% } %>
+      </div>
+      <% } %>
+  </div>
+  <input id="acd-check8" class="acd-check" type="checkbox">
+  <label class="acd-label" for="acd-check8">ヒール</label>
+  <div class="acd-content four-content">
+    <% var check_index_heel_s = ['クルーにヒール調整の指示が出来るか？', '風の強弱に合わせて、クルーに前後方向の座り位置を指示しているか？', '波が高い時に、クルーに前後方向の座り位置を指示しているか？', '強風時、メインの風を逃がして、ヒールの安定化が出来るか？']; %>
+    <% for (var i = 0; i < 4;i++) { %>
+      <div class = "content_container">
+        <p><%= check_index_heel_s[i] %></p>
+        <% for(var j = 0; j< 3; j++) {%>
+          <% if (check_data[111 +i * 3 + j ] != '0') { %>
+            <span  class = 'element_check'>〇 <%=check_data[111 + i * 3 + j]%>  </span>
+            <% } else {%>
+              <span class = 'element_check'>×</span>
+              <% }%>
+          <% } %>
+      </div>
+      <% } %>
+  </div>
+  <input id="acd-check9" class="acd-check" type="checkbox">
+  <label class="acd-label" for="acd-check9">タック</label>
+  <div class="acd-content six-content">
+    <% var check_index_tack_s = ['タック開始前に、掛け声をかけてクルーに準備を促しているか？', 'タック開始前に、クルーがジブのクリートを外しているかを確認しているか？', 'タック時に艇を回しすぎないか？（下らせ過ぎないか？）', 'タック時、クルーの状態を見て、艇の旋回スピードを調整しているか？', 'しっかりとクローズからクローズに移行しているか？', '安全確認はクルーの仕事だが、過信せず自分でも目視しているか？']; %>
+    <% for (var i = 0; i < 6;i++) { %>
+      <div class = "content_container">
+        <p><%= check_index_tack_s[i] %></p>
+        <% for(var j = 0; j< 3; j++) {%>
+          <% if (check_data[ 123+ i * 3 + j ] != '0') { %>
+            <span  class = 'element_check'>〇 <%=check_data[123+ i * 3 + j]%>  </span>
+            <% } else {%>
+              <span class = 'element_check'>×</span>
+              <% }%>
+          <% } %>
+      </div>
+      <% } %>
+  </div>
+  <input id="acd-check10" class="acd-check" type="checkbox">
+  <label class="acd-label" for="acd-check10">ジャイブ</label>
+  <div class="acd-content two-content">
+    <% var check_index_jaib_s = ['ジャイブ開始前に、掛け声をかけてクルーに準備を促しているか？', 'ジャイブ時に艇を回しすぎないか？']; %>
+    <% for (var i = 0; i < 2;i++) { %>
+      <div class = "content_container">
+        <p><%= check_index_jaib_s[i] %></p>
+        <% for(var j = 0; j< 3; j++) {%>
+          <% if (check_data[ 141 + i * 3 + j ] != '0') { %>
+            <span  class = 'element_check'>〇 <%=check_data[141 + i * 3 + j]%>  </span>
+            <% } else {%>
+              <span class = 'element_check'>×</span>
+              <% }%>
+          <% } %>
+      </div>
+      <% } %>
+  </div>
+  <input id="acd-check11" class="acd-check" type="checkbox">
+  <label class="acd-label" for="acd-check11">沈</label>
+  <div class="acd-content two-content">
+    <% var check_index_bottom_s = ['沈の時に、乗員点呼を実施している。', 'クルーに実施すべき事を大きな声で明確に指示している。']; %>
+    <% for (var i = 0; i < 2;i++) { %>
+      <div class = "content_container">
+        <p><%= check_index_bottom_s[i] %></p>
+        <% for(var j = 0; j< 3; j++) {%>
+          <% if (check_data[147 + i * 3 + j ] != '0') { %>
+            <span  class = 'element_check'>〇 <%=check_data[147 + i * 3 + j]%>  </span>
+            <% } else {%>
+              <span class = 'element_check'>×</span>
+              <% }%>
+          <% } %>
+      </div>
+      <% } %>
+  </div>
+  <input id="acd-check12" class="acd-check" type="checkbox">
+  <label class="acd-label" for="acd-check12">交通ルール/帆走理論/その他</label>
+  <div class="acd-content five-content">
+    <% var check_index_other_s = ['経験が浅いクルーには、沈した時に実施すべき処置を船上で説明しているか？', 'クルーが落水した場合、自分が実施すべき行動を説明できるか？', '強風で帆走困難になった場合、自分が実施すべき行動を説明できるか？', '強風で単独で帰港する決心をした場合、自分が実施すべき行動を説明できるか？', '携帯電話など、緊急時の通信手段を持っているか？']; %>
+    <% for (var i = 0; i < 5;i++) { %>
+      <div class = "content_container">
+        <p><%= check_index_other_s[i] %></p>
+        <% for(var j = 0; j< 3; j++) {%>
+          <% if (check_data[153 + i * 3 + j ] != '0') { %>
+            <span  class = 'element_check'>〇 <%=check_data[153 + i * 3 + j]%>  </span>
+            <% } else {%>
+              <span class = 'element_check'>×</span>
+              <% }%>
+          <% } %>
+      </div>
+      <% } %>
+  </div>
+
+  <h1 class = 'edit_logo'><a href = "/password_s"> 編集</a></h1>
+  <h1 class = 'to_crew'><a href = '/check_for_crew'>クルー</a> </h1>
+  <h1 class = 'to_inst'><a href = '/check_for_inst'>インストラクター</a> </h1>
+</body>
+</html>

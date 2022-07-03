@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <title>Document</title>
+</head>
+<body>
+  <%- include('header') %>
+
+<form action="/edit_i" method = "post">
+  <input id="acd-check1" class="acd-check" type="checkbox">
+  <label class="acd-label" for="acd-check1">経験</label>
+  <div class="acd-content three-content">
+    <% var check_index_exp = ['トラッピーズに出る程度の風で20時間以上のスッキッパーを経験したか？', '白波が出ている程度の風で5時間以上のスキッパーを経験したか？', '白波が出ている程度の海況で、沈起こしを経験したか？'];%>
+    <% for (var i = 0; i < 3;i++) { %>
+      <div class = "content_container">
+        <p><%= check_index_exp[i] %></p>
+        <% for (var j = 0;j < 3; j++) { %>
+          <% if (check_data[i * 3 + j] != '0') {%>
+            <input name = "check1_<%=j+1%>_<%=i+1%>" class = "check" type = "checkbox" checked >
+            <input type = 'text' name = 'check_<%= i + 1%>_<%= j+1%>' class = "txt" value = <%= check_data[i * 3 + j] %>>
+          <% } else {%>        
+          <input name = "check1_<%=j+1%>_<%=i+1%>" class = "check" type = "checkbox">
+          <input type = 'text' name = 'check_<%= i + 1%>_<%= j+1%>' class = "txt">
+          <% } %>
+          <% }%>
+      </div>
+      <% } %>
+  </div>
+  <input id="acd-check2" class="acd-check" type="checkbox">
+  <label class="acd-label" for="acd-check2">イレギュラー対応</label>
+  <div class="acd-content four-content">
+    <% var check_index_irregular = ['5ｍ/s以下の風で、クルーのサポートなしで入出航が出来るか？', 'クルーがヒールを取らなくても入出航が出来るか？（リーサードで操舵できるか？）', 'タック時に逆ジブになっても、沈を回避できるか？', '落水者救助が出来るか？（ブイを投げて収容実演）']; %>
+    <% for (var i = 0; i < 4;i++) { %>
+      <div class = "content_container">
+        <p><%= check_index_irregular[i] %></p>
+        <% for (var j = 0;j < 3; j++) { %>
+          <% if (check_data[9 + i * 3 + j] != '0') {%>
+          <input name = "check2_<%=j+1%>_<%=i+1%>" class = "check" type = "checkbox" checked>
+          <input type = 'text' name = 'check_<%= 3 + i + 1%>_<%=j+1%>' class = "txt" value = <%= check_data[9 + i * 3 + j]%> >
+          <% } else {%>
+          <input name = "check2_<%=j+1%>_<%=i+1%>" class = "check" type = "checkbox">
+          <input type = 'text' name = 'check_<%= 3 + i + 1%>_<%=j+1%>' class = "txt" >
+          <% }%>
+          <% }%>
+      </div>
+      <% } %>
+  </div>
+  <input id="acd-check3" class="acd-check" type="checkbox">
+  <label class="acd-label" for="acd-check3">精神力</label>
+  <div class="acd-content two-content">
+    <% var check_index_mental = ['海を恐れすぎないか？', '不測の事態で、パニックを起こさないか？']; %>
+    <% for (var i = 0; i < 2;i++) { %>
+      <div class = "content_container">
+        <p><%= check_index_mental[i] %></p>
+        <% for (var j = 0;j < 3; j++) { %>
+          <% if (check_data[21 + i * 3 + j ] != '0') {%>
+          <input name = "check3_<%=j+1%>_<%=i+1%>" class = "check" type = "checkbox" checked>
+          <input type = 'text' name = 'check_<%=7 + i + 1%>_<%= j+1%>' class = "txt"  value = <%= check_data[21 + i*3 + j]%>>
+          <% } else {%>
+          <input name = "check3_<%=j+1%>_<%=i+1%>" class = "check" type = "checkbox">
+          <input type = 'text' name = 'check_<%=7 + i + 1%>_<%= j+1%>' class = "txt" >
+          <% }%>
+          <% }%>
+      </div>
+      <% } %>
+  </div>
+  <input type="submit" value = '更新' class = 'update-btn'>
+</form>
+</body>
+</html>

@@ -1,0 +1,12 @@
+<header>
+    <div class = 'header-nav'>
+        <a href = '/'> <img src = '/images/logo-header.jpg' width = '125', height = '65'> </a>
+        <p> <%= locals.username %></p>
+        <ul>
+            <li><a href = "/add"> 新規登録</a></li>
+            <% if (locals.username !== 'ゲスト') { %> 
+            <li><a href = "/logout">ログアウト</a></li>
+            <% } %> 
+        </ul>
+    </div>
+</header>
