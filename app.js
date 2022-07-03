@@ -10,7 +10,10 @@ var connection = new Client({
   host: 'ec2-44-195-162-77.compute-1.amazonaws.com',
   user: 'vwhkaddouexeag',
   password: '97111db9b08b83429c18ff249a8fef3c50ed1ac2aaa9a07e0614025eea7bb908',
-  database: 'public'
+  database: 'public',
+   ssl: {
+    rejectUnauthorized: false
+  }	
 });
 
 connection.connect((err) => {
