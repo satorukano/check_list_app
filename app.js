@@ -14,6 +14,7 @@ var connection = new Client({
   port: '5432',
    ssl: {
     rejectUnauthorized: false
+   }
 });
 
 connection.connect((err) => {
