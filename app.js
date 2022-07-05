@@ -1,20 +1,17 @@
 const express = require('express');
-const {Client} = require('pg');
+const mysql = require('mysql');
 const session = require('express-session');
 const app = express();
 
 app.use(express.static('public'));
 app.use(express.urlencoded({extended: false}));
 
-var connection = new Client({
-     host: 'ec2-44-195-162-77.compute-1.amazonaws.com',
-  user: 'vwhkaddouexeag',
-  password: '97111db9b08b83429c18ff249a8fef3c50ed1ac2aaa9a07e0614025eea7bb908',
-  database: 'd9n4qd0eit11tk',
-  port: '5432',
-   ssl: {
-    rejectUnauthorized: false
-   }
+var connection = mysql.createConnection({
+     host: 'us-cdbr-east-06.cleardb.net',
+  user: 'bdf1f38255561f',
+  password: '96ef6f01',
+  database: 'heroku_a6aab3f8f40b070',
+  port: '3306'
 });
 
 connection.connect((err) => {
