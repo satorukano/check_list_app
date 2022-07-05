@@ -14,6 +14,42 @@ var connection = mysql.createConnection({
   port: '3306'
 });
 
+var db_config = {
+     host: 'us-cdbr-east-06.cleardb.net',
+  user: 'bdf1f38255561f',
+  password: '96ef6f01',
+  database: 'heroku_a6aab3f8f40b070',
+  port: '3306'
+}
+
+function handleDisconnect() {
+    console.log('INFO.CONNECTION_DB: ');
+    connection = mysql.createConnection(db_config);
+    
+    //connection取得
+    connection.connect(function(err) {
+        if (err) {
+            console.log('ERROR.CONNECTION_DB: ', err);
+            setTimeout(handleDisconnect, 1000);
+        }
+    });
+    
+    //error('PROTOCOL_CONNECTION_LOST')時に再接続
+    connection.on('error', function(err) {
+        console.log('ERROR.DB: ', err);
+        if (err.code === 'PROTOCOL_CONNECTION_LOST') {
+            console.log('ERROR.CONNECTION_LOST: ', err);
+            handleDisconnect();
+        } else {
+            throw err;
+        }
+    });
+}
+
+handleDisconnect();
+
+
+
 connection.connect((err) => {
   if (err) {
     console.log('error connecting: ' + err.stack);
