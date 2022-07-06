@@ -8,20 +8,19 @@ app.use(express.urlencoded({extended: false}));
 
 var connection = mysql.createConnection({
      host: 'us-cdbr-east-06.cleardb.net',
-  user: 'bdf1f38255561f',
-  password: '96ef6f01',
-  database: 'heroku_a6aab3f8f40b070',
+  user: 'b1a3cbe2b9668d',
+  password: '6929a27d',
+  database: 'heroku_16d9be38d50eaa2',
   port: '3306'
 });
 
 var db_config = {
      host: 'us-cdbr-east-06.cleardb.net',
-  user: 'bdf1f38255561f',
-  password: '96ef6f01',
-  database: 'heroku_a6aab3f8f40b070',
+  user: 'b1a3cbe2b9668d',
+  password: '6929a27d',
+  database: 'heroku_16d9be38d50eaa2',
   port: '3306'
 }
-
 function handleDisconnect() {
     console.log('INFO.CONNECTION_DB: ');
     connection = mysql.createConnection(db_config);
