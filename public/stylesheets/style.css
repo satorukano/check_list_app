@@ -346,21 +346,21 @@
   }
   
   .acd-check:checked + .acd-label + .six-content {
-    height: 690px;
+    height: 720px;
     opacity: 1;
     padding: 10px;
     visibility: visible;
   }
   
   .acd-check:checked + .acd-label + .five-content {
-    height: 562.5px;
+    height: 590px;
     opacity: 1;
     padding: 10px;
     visibility: visible;
   }
   
   .acd-check:checked + .acd-label + .seven-content {
-    height: 800px;
+    height: 850px;
     opacity: 1;
     padding: 10px;
     visibility: visible;
