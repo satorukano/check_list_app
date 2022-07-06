@@ -118,12 +118,13 @@ app.use((req, res,next) => {
 } );
 
 app.get('/', (req, res) => {
-  res.render('login.ejs');
+  res.render('login.ejs', {errors:[]});
 });
 
 
 app.post('/', (req, res) => {
   const id = req.body.id;
+  const errors = [];
 
   connection.query(
     'select * from for_crew where id = ?  ',
@@ -135,7 +136,8 @@ app.post('/', (req, res) => {
           req.session.logged_id = results[0].id;
           res.redirect('/check_for_crew');
         }else {
-          res.redirect('/');
+	  errors.push('このidは存在しません')
+          res.render('login.ejs', {errors:errors});
         }
       } 
      
