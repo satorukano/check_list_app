@@ -101,6 +101,9 @@ app.use(
     secret: 'my_secret_key',
     resave: false,
     saveUninitialized: false,
+     cookie: {
+      maxAge:60*1000
+    }
   })
 );
 
