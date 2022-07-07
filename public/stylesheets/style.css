@@ -97,6 +97,27 @@
     padding: 10px;
     visibility: visible;
   }
+
+.acd-check:checked + .acd-label + .two-content {
+    height: 180px;
+    opacity: 1;
+    padding: 10px;
+    visibility: visible;
+  }
+
+.acd-check:checked + .acd-label + .nine-content {
+    height: 790px;
+    opacity: 1;
+    padding: 10px;
+    visibility: visible;
+  }
+
+.acd-check:checked + .acd-label + .one-content {
+    height: 90px;
+    opacity: 1;
+    padding: 10px;
+    visibility: visible;
+  }
   
 
 
