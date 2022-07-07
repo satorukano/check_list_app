@@ -45,7 +45,7 @@ function handleDisconnect() {
     });
 }
 
-
+handleDisconnect();
 
 
 connection.connect((err) => {
