@@ -339,7 +339,7 @@
   }
   
   .acd-check:checked + .acd-label + .three-content {
-    height: 337.5px;
+    height: 350px;
     opacity: 1;
     padding: 10px;
     visibility: visible;
