@@ -6,7 +6,7 @@ const app = express();
 app.use(express.static('public'));
 app.use(express.urlencoded({extended: false}));
 
-var connection = mysql.createConnection({
+var connection = mysql.createPool({
      host: 'us-cdbr-east-06.cleardb.net',
   user: 'b1a3cbe2b9668d',
   password: '6929a27d',
@@ -23,10 +23,10 @@ var db_config = {
 }
 function handleDisconnect() {
     console.log('INFO.CONNECTION_DB: ');
-    connection = mysql.createConnection(db_config);
+    connection = mysql.createPool(db_config);
     
     //connection取得
-    connection.connect(function(err) {
+    connection.getConnection(function(err) {
         if (err) {
             console.log('ERROR.CONNECTION_DB: ', err);
             setTimeout(handleDisconnect, 1000);
@@ -48,7 +48,7 @@ function handleDisconnect() {
 handleDisconnect();
 
 
-connection.connect((err) => {
+connection.getConnection((err) => {
   if (err) {
     console.log('error connecting: ' + err.stack);
     return;
