@@ -297,7 +297,7 @@ app.get('/check_for_crew', (req, res) => {
     'select * from for_crew where id = ? ;',
     [req.session.logged_id],
     (error, results) => {
-      var values = Object.values(results[0]);
+      var values = results[0].values;
       values.shift();
       values.shift();
       console.log(values.length)
