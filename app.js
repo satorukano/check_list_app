@@ -6,21 +6,18 @@ const app = express();
 app.use(express.static('public'));
 app.use(express.urlencoded({extended: false}));
 
-var connection = mysql.createPool({
-     host: 'us-cdbr-east-06.cleardb.net',
-  user: 'b1a3cbe2b9668d',
-  password: '6929a27d',
-  database: 'heroku_16d9be38d50eaa2',
-  port: '3306'
-});
 
 var db_config = {
-     host: 'us-cdbr-east-06.cleardb.net',
-  user: 'b1a3cbe2b9668d',
-  password: '6929a27d',
-  database: 'heroku_16d9be38d50eaa2',
-  port: '3306'
+     host: data_host,
+  user: data_user,
+  password: data_pass,
+  database: database_name,
+  port: data_port
 }
+
+var connection = mysql.createPool(db_config);
+
+
 function handleDisconnect() {
     console.log('INFO.CONNECTION_DB: ');
     connection = mysql.createPool(db_config);
