@@ -447,6 +447,7 @@ app.post('/add', (req, res, next) => {
 
 app.post('/edit', (req, res) => {
   var number = 0;
+  try{
   for(var key in req.body) {
 
     if(req.body[key] === 'on') {
@@ -464,6 +465,12 @@ app.post('/edit', (req, res) => {
     );
   }
   res.redirect('/check_for_crew');
+  }catch(err){
+    req.session.destroy((error) => {
+    res.redirect('/');
+  });
+  }
+    
 });
 
 
