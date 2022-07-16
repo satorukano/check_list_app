@@ -8,11 +8,11 @@ app.use(express.urlencoded({extended: false}));
 
 
 var db_config = {
-     host: data_host,
-  user: data_user,
-  password: data_pass,
-  database: database_name,
-  port: data_port
+     host: process.env.data_host,
+  user: process.env.data_user,
+  password: process.env.data_pass,
+  database: process.env.database_name,
+  port: process.env.data_port
 }
 
 var connection = mysql.createPool(db_config);
