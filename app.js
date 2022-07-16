@@ -12,7 +12,7 @@ var db_config = {
   user: process.env.data_user,
   password: process.env.data_pass,
   database: process.env.database_name,
-  port: process.env.data_port
+  port: '3306'
 }
 
 var connection = mysql.createPool(db_config);
