@@ -325,10 +325,14 @@
   }
 
   .click-box {
-    background-color:black;
-    height:50px;
-    width:100px;
+    background-color:skyblue;
+    height:60px;
+    width:300px;
     border-radius:10%;
+}
+  .click-btn {
+    color:black;
+    margin:auto;
 }
 
 
