@@ -324,6 +324,13 @@
     margin-top: 30px;
   }
 
+  .click-box {
+    background-color:black;
+    height:30px;
+    width:50px;
+    border-radius:5%;
+}
+
 
   @media(max-width: 500px) {
     .sign input[type="submit"] {
