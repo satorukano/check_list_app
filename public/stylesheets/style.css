@@ -324,6 +324,11 @@
     margin-top: 30px;
   }
 
+.click-btn {
+    background:tomato;
+    border-radius:20%;
+}
+
   @media(max-width: 500px) {
     .sign input[type="submit"] {
       margin-top: 50px;
