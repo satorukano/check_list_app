@@ -326,9 +326,9 @@
 
   .click-box {
     background-color:black;
-    height:30px;
-    width:50px;
-    border-radius:5%;
+    height:50px;
+    width:100px;
+    border-radius:10%;
 }
 
 
